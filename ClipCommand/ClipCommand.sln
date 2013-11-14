@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipCommand", "ClipCommand\ClipCommand.csproj", "{1A86B619-3F90-40FC-9A24-6C722E546CFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipCommand.UnitTest", "ClipCommand.UnitTest\ClipCommand.UnitTest.csproj", "{B104D3A3-4879-471A-AEC4-629219682C3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1A86B619-3F90-40FC-9A24-6C722E546CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A86B619-3F90-40FC-9A24-6C722E546CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A86B619-3F90-40FC-9A24-6C722E546CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B104D3A3-4879-471A-AEC4-629219682C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B104D3A3-4879-471A-AEC4-629219682C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B104D3A3-4879-471A-AEC4-629219682C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B104D3A3-4879-471A-AEC4-629219682C3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
