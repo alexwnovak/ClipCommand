@@ -1,10 +1,27 @@
-﻿namespace ClipCommand
+﻿using System;
+using System.IO;
+
+namespace ClipCommand
 {
    public class InputStream : IInputStream
    {
       public byte[] GetInput()
       {
-         throw new System.NotImplementedException();
+         using ( var memoryStream = new MemoryStream() )
+         {
+            using ( var stream = Console.OpenStandardInput() )
+            {
+               var buffer = new byte[128];
+               int bytes;
+
+               while ( ( bytes = stream.Read( buffer, 0, buffer.Length ) ) > 0 )
+               {
+                  memoryStream.Write( buffer, 0, bytes );
+               }
+
+               return memoryStream.GetBuffer();
+            }
+         }
       }
    }
 }

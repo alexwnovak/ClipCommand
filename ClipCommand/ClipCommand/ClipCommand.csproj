@@ -51,6 +51,7 @@
     <Compile Include="ClipboardAdapter.cs" />
     <Compile Include="Dependency.cs" />
     <Compile Include="IClipboard.cs" />
+    <Compile Include="IConsoleAdapter.cs" />
     <Compile Include="IInputStream.cs" />
     <Compile Include="InputStream.cs" />
     <Compile Include="Program.cs" />
