@@ -1,4 +1,6 @@
-﻿namespace ClipCommand
+﻿using System;
+
+namespace ClipCommand
 {
    internal static class Program
    {
@@ -10,6 +12,7 @@
          Dependency.RegisterType<IConsoleAdapter, ConsoleAdapter>();
       }
 
+      [STAThread]
       private static int Main( string[] arguments )
       {
          InitDependencyInjection();
