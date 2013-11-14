@@ -47,5 +47,24 @@ namespace ClipCommand.UnitTest
 
          inputStreamMock.Verify( ism => ism.GetInput(), Times.Once() );
       }
+
+      [TestMethod]
+      public void Run_EmptyArguments_CallsInputStream()
+      {
+         // Setup
+
+         var inputStreamMock = new Mock<IInputStream>();
+         Dependency.RegisterInstance( inputStreamMock.Object );
+
+         // Test
+
+         var appController = new AppController();
+
+         appController.Run( new string[0] );
+
+         // Assert
+
+         inputStreamMock.Verify( ism => ism.GetInput(), Times.Once() );
+      }
    }
 }
