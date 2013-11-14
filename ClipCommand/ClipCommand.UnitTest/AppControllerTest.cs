@@ -21,6 +21,9 @@ namespace ClipCommand.UnitTest
          var inputStreamMock = new Mock<IInputStream>();
          Dependency.RegisterInstance( inputStreamMock.Object );
 
+         var clipboardMock = new Mock<IClipboard>();
+         Dependency.RegisterInstance( clipboardMock.Object );
+
          // Test
 
          var appController = new AppController();
@@ -37,6 +40,9 @@ namespace ClipCommand.UnitTest
 
          var inputStreamMock = new Mock<IInputStream>();
          Dependency.RegisterInstance( inputStreamMock.Object );
+
+         var clipboardMock = new Mock<IClipboard>();
+         Dependency.RegisterInstance( clipboardMock.Object );
 
          // Test
 
