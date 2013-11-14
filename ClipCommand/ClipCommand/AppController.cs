@@ -6,7 +6,11 @@
       {
          var inputStream = Dependency.Resolve<IInputStream>();
 
-         inputStream.GetInput();
+         var data = inputStream.GetInput();
+
+         var clipboard = Dependency.Resolve<IClipboard>();
+
+         clipboard.Write( data );
 
          return 0;
       }

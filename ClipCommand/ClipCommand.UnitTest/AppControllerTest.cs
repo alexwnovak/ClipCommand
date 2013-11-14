@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 namespace ClipCommand.UnitTest
@@ -49,12 +50,18 @@ namespace ClipCommand.UnitTest
       }
 
       [TestMethod]
-      public void Run_EmptyArguments_CallsInputStream()
+      public void Run_EmptyArguments_ReadsInputAndWritesToClipboard()
       {
+         var data = new byte[0];
+
          // Setup
 
          var inputStreamMock = new Mock<IInputStream>();
+         inputStreamMock.Setup( ism => ism.GetInput() ).Returns( data );
          Dependency.RegisterInstance( inputStreamMock.Object );
+
+         var clipboardMock = new Mock<IClipboard>();
+         Dependency.RegisterInstance( clipboardMock.Object );
 
          // Test
 
@@ -65,6 +72,7 @@ namespace ClipCommand.UnitTest
          // Assert
 
          inputStreamMock.Verify( ism => ism.GetInput(), Times.Once() );
+         clipboardMock.Verify( cm => cm.Write( data ), Times.Once() );
       }
    }
 }
