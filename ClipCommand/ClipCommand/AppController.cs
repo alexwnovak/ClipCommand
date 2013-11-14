@@ -4,6 +4,10 @@
    {
       public int Run( string[] arguments )
       {
+         var inputStream = Dependency.Resolve<IInputStream>();
+
+         inputStream.GetInput();
+
          return 0;
       }
    }
