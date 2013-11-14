@@ -4,6 +4,11 @@ namespace ClipCommand
 {
    public interface IConsoleAdapter
    {
+      bool IsInputRedirected
+      {
+         get;
+      }
+
       Stream OpenStandardInput();
    }
 }
