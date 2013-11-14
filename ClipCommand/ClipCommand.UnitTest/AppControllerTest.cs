@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 namespace ClipCommand.UnitTest
@@ -14,9 +13,32 @@ namespace ClipCommand.UnitTest
       }
 
       [TestMethod]
+      public void Run_StandardInNotRedirected_ReturnsExitCodeZero()
+      {
+         // Setup
+
+         var consoleAdapterMock = new Mock<IConsoleAdapter>();
+         Dependency.RegisterInstance( consoleAdapterMock.Object );
+
+         // Test
+
+         var appController = new AppController();
+
+         int exitCode = appController.Run( null );
+
+         // Assert
+
+         Assert.AreEqual( 1, exitCode );
+      }
+
+      [TestMethod]
       public void Run_NoArguments_ReturnsExitCodeZero()
       {
          // Setup
+
+         var consoleAdapter = new Mock<IConsoleAdapter>();
+         consoleAdapter.SetupGet( ca => ca.IsInputRedirected ).Returns( true );
+         Dependency.RegisterInstance( consoleAdapter.Object );
 
          var inputStreamMock = new Mock<IInputStream>();
          Dependency.RegisterInstance( inputStreamMock.Object );
@@ -37,6 +59,10 @@ namespace ClipCommand.UnitTest
       public void Run_NullArguments_CallsInputStream()
       {
          // Setup
+
+         var consoleAdapter = new Mock<IConsoleAdapter>();
+         consoleAdapter.SetupGet( ca => ca.IsInputRedirected ).Returns( true );
+         Dependency.RegisterInstance( consoleAdapter.Object );
 
          var inputStreamMock = new Mock<IInputStream>();
          Dependency.RegisterInstance( inputStreamMock.Object );
@@ -61,6 +87,10 @@ namespace ClipCommand.UnitTest
          var data = new byte[0];
 
          // Setup
+
+         var consoleAdapter = new Mock<IConsoleAdapter>();
+         consoleAdapter.SetupGet( ca => ca.IsInputRedirected ).Returns( true );
+         Dependency.RegisterInstance( consoleAdapter.Object );
 
          var inputStreamMock = new Mock<IInputStream>();
          inputStreamMock.Setup( ism => ism.GetInput() ).Returns( data );
