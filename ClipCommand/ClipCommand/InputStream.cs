@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace ClipCommand
 {
@@ -7,9 +6,11 @@ namespace ClipCommand
    {
       public byte[] GetInput()
       {
+         var consoleAdapter = Dependency.Resolve<IConsoleAdapter>();
+
          using ( var memoryStream = new MemoryStream() )
          {
-            using ( var stream = Console.OpenStandardInput() )
+            using ( var stream = consoleAdapter.OpenStandardInput() )
             {
                var buffer = new byte[128];
                int bytes;
@@ -19,7 +20,7 @@ namespace ClipCommand
                   memoryStream.Write( buffer, 0, bytes );
                }
 
-               return memoryStream.GetBuffer();
+               return memoryStream.ToArray();
             }
          }
       }
