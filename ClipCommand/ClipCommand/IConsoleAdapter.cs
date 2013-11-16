@@ -10,5 +10,7 @@ namespace ClipCommand
       }
 
       Stream OpenStandardInput();
+
+      void WriteLine( string text );
    }
 }

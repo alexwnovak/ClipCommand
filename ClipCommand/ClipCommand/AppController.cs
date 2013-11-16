@@ -19,6 +19,8 @@
 
          clipboard.Write( data );
 
+         consoleAdapter.WriteLine( "Copied " + data.Length + " bytes" );
+
          return 0;
       }
    }

@@ -17,5 +17,10 @@ namespace ClipCommand
       {
          return Console.OpenStandardInput();
       }
+
+      public void WriteLine( string text )
+      {
+         Console.WriteLine( text );
+      }
    }
 }
