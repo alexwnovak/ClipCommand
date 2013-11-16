@@ -4,6 +4,15 @@
    {
       public int Run( string[] arguments )
       {
+         if ( arguments == null )
+         {
+            var displayController = Dependency.Resolve<IDisplayController>();
+
+            displayController.ShowSyntax();
+
+            return 1;
+         }
+
          var consoleAdapter = Dependency.Resolve<IConsoleAdapter>();
 
          if ( !consoleAdapter.IsInputRedirected )
