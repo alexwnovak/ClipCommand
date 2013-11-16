@@ -33,6 +33,29 @@ namespace ClipCommand.UnitTest
       }
 
       [TestMethod]
+      public void Run_EmptyArguments_DisplaysSyntaxAndExitsWithOne()
+      {
+         // Setup
+
+         var displayControllerMock = new Mock<IDisplayController>();
+         Dependency.RegisterInstance( displayControllerMock.Object );
+
+         // Test
+
+         var appController = new AppController();
+
+         int exitCode = appController.Run( new string[0] );
+
+         // Assert
+
+         Assert.AreEqual( 1, exitCode );
+         displayControllerMock.Verify( dc => dc.ShowSyntax(), Times.Once );
+      }
+
+
+
+
+      [TestMethod]
       public void Run_StandardInNotRedirected_ReturnsExitCodeZero()
       {
          // Setup
