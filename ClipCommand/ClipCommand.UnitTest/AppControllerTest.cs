@@ -52,9 +52,6 @@ namespace ClipCommand.UnitTest
          displayControllerMock.Verify( dc => dc.ShowSyntax(), Times.Once );
       }
 
-
-
-
       [TestMethod]
       public void Run_StandardInNotRedirected_ReturnsExitCodeZero()
       {

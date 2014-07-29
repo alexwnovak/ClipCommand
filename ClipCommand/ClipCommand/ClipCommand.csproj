@@ -52,6 +52,7 @@
     <Compile Include="ClipboardAdapter.cs" />
     <Compile Include="ConsoleAdapter.cs" />
     <Compile Include="Dependency.cs" />
+    <Compile Include="DisplayController.cs" />
     <Compile Include="IClipboard.cs" />
     <Compile Include="IConsoleAdapter.cs" />
     <Compile Include="IDisplayController.cs" />
